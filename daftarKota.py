@@ -1,12 +1,18 @@
-import os, csv
-from tracemalloc import start
+import os
+import mataramRoute
 import Dashoard
 import Main
-import Kota
-import mataramRoute
-import lotimRoute
 
-def daftar_kota():
+mataram_route = [
+    [0,1,2,3,4],
+    [1,0,4.3,6.9,7.8],
+    [2,4.3,0,4.7,11],
+    [3,6.9,4.7,0,12],
+    [4,7.8,11,12,0]
+]
+
+
+def daftar_kota_mataram(mataram_route, start):
     os.system("clear")
     print("="*108)
     print("||"+"NinjaGo".center(104)+"||")
@@ -22,25 +28,9 @@ def daftar_kota():
     print("="*108)
     pilihan = input("Masukan pilihan anda : ")
     if pilihan == '1':
-        Kota.menu_kota_mataram()
-        mataramRoute.mataram(mataramRoute, start)
+        mataramRoute.menu_kota_mataram()
+        mataramRoute.mataram(mataram_route, start)
         mataramRoute.hasil_lintasan_mtr()
-    elif pilihan == '2':
-        Kota.menu_lombokTimur()
-        lotimRoute.lotim()
-        lotimRoute.hasil_lintasan_lotim()
-    # elif pilihan == '3':
-    #     menu_lombokBarat()
-    #     lobar()
-    #     hasil_lintasan_lobar()
-    # elif pilihan == '4':
-    #     menu_lombokTengah()
-    #     loteng()
-    #     hasil_lintasan_loteng()
-    # elif pilihan == '5':
-    #     menu_lombokUtara()
-    #     klu()
-    #     hasil_lintasan_klu()      
     elif pilihan == '0':
         confirm = input("Apakah anda yakin untuk keluar ? [y/n]")
         if confirm == 'y':
